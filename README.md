@@ -5,6 +5,8 @@ Magento v2.4.3 on docker: ngnix port 7777, mysql 8 and php7.4-fpm. Elasticsearch
 Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 ```sh
 sudo apt-get update
+```
+```sh
 sudo apt-get install \
     ca-certificates \
     curl \
@@ -24,6 +26,8 @@ echo \
 Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
 ```sh
 sudo apt-get update
+```
+```sh
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
 ```
 You need to start docker service:
