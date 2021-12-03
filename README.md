@@ -2,14 +2,31 @@
 Magento v2.4.3 on docker: ngnix port 7777, mysql 8 and php7.4-fpm. Elasticsearch 7.14.2
 
 ## Instalation guide
-We need to install ```docker``` and ```docker-compose```:
-Open terminal in working directory and enter:
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 ```sh
-sudo apt update && sudo apt upgrade -y
-sudo apt install docker.io
-sudo apt install docker-compose
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 ```
-Second, build and than run ```docker``` containers (usually you need ```sudo``` rights):
+Add Docker’s official GPG key:
+```sh
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+Use the following command to set up the stable repository.
+```sh
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
+```sh
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
+```
+Next, build and than run containers (usually you need sudo rights):
 ```sh
 sudo docker-compose up -d
 ```
