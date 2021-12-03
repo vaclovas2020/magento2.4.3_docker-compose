@@ -7,11 +7,7 @@ Update the apt package index and install packages to allow apt to use a reposito
 sudo apt-get update
 ```
 ```sh
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+sudo apt-get install ca-certificates curl gnupg lsb-release
 ```
 Add Docker’s official GPG key:
 ```sh
@@ -19,9 +15,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 ```
 Use the following command to set up the stable repository.
 ```sh
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
 ```sh
