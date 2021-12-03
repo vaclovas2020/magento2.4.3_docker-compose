@@ -1,4 +1,7 @@
 #!/usr/bin/sh
+docker-compose up -d --build --force-recreate
+echo "### docker-copose buils finished. Waiting 2 seconds and magento2 installation will begins... ###"
+sleep 2s
 docker-compose exec app composer install
 docker-compose exec app php bin/magento setup:install \
 --base-url=http://127.0.0.1:7777/ \
