@@ -30,11 +30,7 @@ You need to start docker service:
 ```sh
 sudo service docker start
 ```
-Next, build and than run containers (usually you need sudo rights):
-```sh
-sudo docker-compose up -d
-```
-Finally, just run ```install_m2.sh```:
+Finally, just run install_m2.sh:
 ```sh
 sudo ./install_m2.sh
 ```
