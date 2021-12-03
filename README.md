@@ -26,6 +26,10 @@ Update the apt package index, and install the latest version of Docker Engine an
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
 ```
+You need to start docker service:
+```sh
+sudo service docker start
+```
 Next, build and than run containers (usually you need sudo rights):
 ```sh
 sudo docker-compose up -d
