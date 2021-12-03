@@ -1,0 +1,50 @@
+version: '3.1'
+services:
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - "7777:7777"
+    volumes:
+      - ./php/src/magento2:/var/www/html
+      - ./data/nginx/config:/etc/nginx/conf.d
+  mysqlhost:
+    command: 
+     - "--default-authentication-plugin=mysql_native_password"
+    build: ./mysql
+    environment:
+      - MYSQL_DATABASE=magentodevdb
+      - MYSQL_ROOT_PASSWORD=root12345@
+      - MYSQL_USER=magentouser
+      - MYSQL_PASSWORD=magentoDB123@
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    ports: 
+      - "6033:6033"
+    restart: always
+  elastic:
+    image: elasticsearch:7.14.2
+    restart: always
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+      - eslogs:/usr/share/elasticsearch/logs
+      - ./data/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./data/elasticsearch/config/jvm.options:/usr/share/elasticsearch/config/jvm.options
+    ports:
+      - 9200:9200
+  app:
+    build: ./php
+    ports:
+    - 9000:9000
+    restart: always
+    volumes:
+      - ./php/src/magento2:/var/www/html
+volumes:
+  esdata:
+    driver: local
+  eslogs:
+    driver: local

@@ -1,0 +1,4 @@
+network.host: elastic
+http.port: 9200
+discovery.type: single-node
+discovery.seed_hosts: []
