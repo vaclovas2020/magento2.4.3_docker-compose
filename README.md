@@ -34,6 +34,8 @@ sudo ./install_m2.sh
 ```
 
 You can open ```http://localhost:7777``` or ```http://127.0.0.1:7777``` and start to develop on Magento v2.4.3
+Phpmyadmin adress is ```http://localhost:8081```
+Happy coding!!!
 ## MySQL Database credentials
 ```
 MYSQL_DATABASE=magentodevdb
