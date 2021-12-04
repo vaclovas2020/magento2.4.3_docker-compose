@@ -22,8 +22,6 @@ docker-compose exec app php bin/magento setup:install \
 --elasticsearch-port=9200 \
 --use-rewrites=1
 docker-compose exec app php bin/magento deploy:mode:set developer
-docker-compose exec app php bin/magento module:disable Magento_TwoFactorAuth
-docker-compose exec app php bin/magento msp:security:recaptcha:disable
 docker-compose exec app php bin/magento cache:clean
 docker-compose exec app php bin/magento cache:flush 
 docker-compose exec app php bin/magento setup:di:compile
