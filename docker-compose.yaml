@@ -43,6 +43,14 @@ services:
     restart: always
     volumes:
       - ./php/src/magento2:/var/www/html
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_HOST=mysqlhost
+      - PMA_PORT=6033
 volumes:
   esdata:
     driver: local
