@@ -34,3 +34,15 @@ sudo ./install_m2.sh
 ```
 
 You can open ```http://localhost:7777``` or ```http://127.0.0.1:7777``` and start to develop on Magento v2.4.3
+## MySQL Database credentials
+```
+MYSQL_DATABASE=magentodevdb
+MYSQL_ROOT_PASSWORD=root12345@
+MYSQL_USER=magentouser
+MYSQL_PASSWORD=magentoDB123@
+```
+## Magento v2.4.3 admin credentials
+```
+--admin-user=admin
+--admin-password=admin123
+```
